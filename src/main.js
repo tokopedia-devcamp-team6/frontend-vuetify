@@ -2,17 +2,19 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue';
 import App from './App';
+import store from './store';
 import Vuetify from 'vuetify';
 import router from './router';
 import 'font-awesome/css/font-awesome.css';  
 import './theme/default.styl';
-// import VeeValidate from 'vee-validate';
+import VeeValidate from 'vee-validate';
 // import colors from 'vuetify/es5/util/colors';
 import Truncate from 'lodash.truncate';
 Vue.config.productionTip = false;
 // Helpers
 // Global filters
 Vue.filter('truncate', Truncate);
+Vue.use(VeeValidate);
 Vue.use(Vuetify, {
   theme: {
     primary: '#4CAF50',
@@ -30,5 +32,6 @@ new Vue({
   el: '#app',
   router,
   components: { App },
+  store,
   template: '<App/>'
 });

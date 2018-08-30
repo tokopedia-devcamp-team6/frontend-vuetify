@@ -1,3 +1,5 @@
+import tokenService from '../common/token.services';
+
 export default [
 
   {
@@ -109,7 +111,7 @@ export default [
       /* webpackChunkName: "routes" */
       /* webpackMode: "lazy-once" */
       `@/pages/Media.vue`
-    )
+    ),
   },
 
   // {
@@ -183,4 +185,60 @@ export default [
     props: (route) => ({ type: route.query.type }),
     component: () => import(`@/pages/cart/Orders`)
   },
+
+  {
+    path: '/m/dashboard',
+    meta: {},
+    name: 'merchant/dashboard',
+    props: (route) => ({ type: route.query.type }),
+    component: () => import(`@/pages/merchants/Dashboard`),
+    beforeEnter: checkAuth
+  },
+  /* Merchants */
+  {
+    path: '/m/profile',
+    meta: {},
+    name: 'merchant/profile',
+    props: (route) => ({ type: route.query.type }),
+    component: () => import(`@/pages/merchants/Profile`),
+    beforeEnter: checkAuth
+  },
+  {
+    path: '/m/post',
+    meta: {},
+    name: 'merchant/post',
+    props: (route) => ({ type: route.query.type }),
+    component: () => import(`@/pages/merchants/PostProduct`),
+    beforeEnter: checkAuth
+  },
+  {
+    path: '/m/transactions',
+    meta: {},
+    name: 'merchant/transactions',
+    props: (route) => ({ type: route.query.type }),
+    component: () => import(`@/pages/merchants/Transactions`),
+    beforeEnter: checkAuth 
+  }
 ];
+
+function isLogin (to, from, next) {
+  if (tokenService.getToken()) {
+    next('/');
+  } else {
+    next();
+  }
+}
+
+function checkAuth (to, from, next) {
+  if (tokenService.getToken()) {
+    /* You already log in */
+    next();
+  } else {
+    /* Save the URL attempt from user */
+    console.log('you not authenticaed');
+    let attemptURL = window.location.href;
+    localStorage.setItem('savedAttemptURL', attemptURL);
+    /* Redirect to log in page */
+    next('/login');
+  }
+}

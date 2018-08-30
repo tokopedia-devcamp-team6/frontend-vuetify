@@ -1,33 +1,27 @@
 export default [
   {
-    id: '150',
-    product: 'iPhone6',
-    price: '$699',
+    id: '1',
+    product: 'Beras Super 3KG',
+    price: 'Rp. 80.000',
     status: 'processing',
   },
   {
-    id: '151',
-    product: 'iPad Pro',
-    price: '$299',
-    status: 'sent',
-  },
-  {
-    id: '300',
-    product: 'Microsoft surface',
-    price: '$1,699',
+    id: '2',
+    product: 'Ikan Lele 3KG',
+    price: 'Rp. 20.000',
     status: 'processing',
   },
   {
-    id: '320',
-    product: 'Galaxy S7 edge',
-    price: '$729',
+    id: '3',
+    product: 'Gula Super 3KG',
+    price: 'Rp. 70.000',
     status: 'processing',
   },
   {
-    id: '501',
-    product: '128G SD Card',
-    price: '$699',
-    status: 'delivered',
+    id: '4',
+    product: 'Cabai Setan 3KG',
+    price: 'Rp. 120.000',
+    status: 'processing',
   },
 
 

@@ -67,14 +67,6 @@ export default {
         title: 'Pesanan',
         click: 'pesanan'
       },
-      {
-        icon: 'fullscreen_exit',
-        href: '#',
-        title: 'Keluar',
-        click: (e) => {
-          window.getApp.$emit('APP_LOGOUT');
-        }
-      }
     ],
   }),
   computed: {

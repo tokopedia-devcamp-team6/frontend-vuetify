@@ -33,6 +33,8 @@
 </template>
 
 <script>
+import { LOGIN } from '@/store/actions.type';
+
 export default {
   data: () => ({
     loading: false,
@@ -46,10 +48,14 @@ export default {
     login () {
       this.loading = true;
       setTimeout(() => {
-        this.$router.push('/dashboard');
+        this.$store.dispatch(LOGIN)
+          .then(() => {
+            this.$router.push({name: 'merchant/dashboard'});
+            this.loading = false;
+          });
       }, 1000);
     }
-  }
+  },
 
 };
 </script>

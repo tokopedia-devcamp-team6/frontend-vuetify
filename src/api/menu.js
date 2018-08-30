@@ -5,12 +5,6 @@ const Menu =  [
     icon: 'home',
     name: 'Media',
   },
-  // {
-  //   title: 'Login Sample',
-  //   group: 'apps',
-  //   name: 'Login',
-  //   icon: 'perm_media',
-  // },
   {
     title: 'Kategori',
     group: 'kategori',
@@ -24,6 +18,12 @@ const Menu =  [
   },
   { divider: true },
   { header: 'Lainnya' },
+  // {
+  //   title: 'Login sebagai Penjual',
+  //   group: 'apps',
+  //   icon: 'lock',
+  //   name: 'Login',
+  // },
   {
     title: 'Hubungi Kami',
     group: 'lainnya',
