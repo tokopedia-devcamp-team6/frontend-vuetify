@@ -103,5 +103,19 @@ export default [
     name: 'detail-product',
     props: (route) => ({ type: route.query.type }),
     component: () => import(`@/pages/products/DetailProduct`)
+  },
+  {
+    path: '/hubungi-kami',
+    meta: {},
+    name: 'hubungi-kami',
+    props: (route) => ({ type: route.query.type }),
+    component: () => import(`@/pages/contact_us`)
+  },
+  {
+    path: '/tentang-kami',
+    meta: {},
+    name: 'tentang-kami',
+    props: (route) => ({ type: route.query.type }),
+    component: () => import(`@/pages/about`)
   }
 ];

@@ -1,16 +1,9 @@
 const Menu =  [
-  { header: 'Apps' },
   {
-    title: 'Dashboard',
+    title: 'Beranda',
     group: 'apps',
-    icon: 'dashboard',
-    name: 'Dashboard',
-  },
-  {
-    title: 'Media',
-    group: 'apps',
+    icon: 'home',
     name: 'Media',
-    icon: 'perm_media',
   },
   {
     title: 'Login Sample',
@@ -18,15 +11,31 @@ const Menu =  [
     name: 'Login',
     icon: 'perm_media',
   },
-  // {
-  //   title: 'Widgets',
-  //   group: 'widgets',
-  //   component: 'widgets',
-  //   icon: 'widgets',
-  //   items: [
-  //     { name: 'dashboard', title: 'Dashboard', component: 'Dashboard' },
-  //   ]
-  // },  
+  {
+    title: 'Kategori',
+    group: 'kategori',
+    component: 'widgets',
+    icon: 'shopping_basket',
+    items: [
+      { name: 'Perikanan', title: 'Perikanan', component: 'Dashboard' },
+      { name: 'Pertenakan', title: 'Pertenakan', component: 'Dashboard' },
+      { name: 'Pertanian', title: 'Pertanian', component: 'Dashboard' },
+    ]
+  },
+  { divider: true },
+  { header: 'Lainnya' },
+  {
+    title: 'Hubungi Kami',
+    group: 'lainnya',
+    name: 'hubungi-kami',
+    icon: 'call',
+  },
+  {
+    title: 'Tentang',
+    group: 'lainnya',
+    name: 'tentang-kami',
+    icon: 'live_help',
+  },
 ];
 // reorder menu
 Menu.forEach((item) => {
