@@ -10,19 +10,19 @@
                   <img src="/static/sembakopedia-logo-p.png" alt="Vue Material Admin" width="200">
                 </div>                
                 <v-form>
-                  <v-text-field append-icon="person" name="login" label="Login" type="text" v-model="model.username"></v-text-field>
+                  <v-text-field append-icon="person" name="fullname" label="Nama Lengkap" type="text" v-model="model.fullname"></v-text-field>
+                  <v-text-field append-icon="person" name="email" label="Email" type="text" v-model="model.email"></v-text-field>
+                  <v-text-field append-icon="call" name="phone_number" label="Nomor Telepon" type="text" v-model="model.no_hp"></v-text-field>
                   <v-text-field append-icon="lock" name="password" label="Password" id="password" type="password" v-model="model.password"></v-text-field>
                 </v-form>
               </v-card-text>
               <v-card-actions>
-                <v-btn icon>
-                  <v-icon color="blue">fa fa-facebook-square fa-lg</v-icon>
-                </v-btn>
                 <v-spacer></v-spacer>
-                <v-btn block color="primary" @click="login" :loading="loading">Register</v-btn>
+                <v-btn block color="primary" @click="login" :loading="loading">Daftar Sekarang</v-btn>
               </v-card-actions>
             </v-card>
           </v-flex>
+          <!--  -->
         </v-layout>
       </v-container>
     </v-content>
@@ -34,8 +34,10 @@ export default {
   data: () => ({
     loading: false,
     model: {
-      username: 'halo@indrakusuma.com',
-      password: 'password'
+      email: '',
+      password: '',
+      no_hp: '',
+      fullname: '',
     }
   }),
 
