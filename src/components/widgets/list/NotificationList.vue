@@ -1,7 +1,7 @@
 <template>
   <v-card class="elevation-0">
     <v-toolbar card dense color="transparent">
-      <v-toolbar-title><h4>Notification</h4></v-toolbar-title>
+      <v-toolbar-title><h4>Keranjang Saya</h4></v-toolbar-title>
     </v-toolbar>
     <v-divider></v-divider>
     <v-card-text class="pa-0">
@@ -23,7 +23,7 @@
         </template>
       </v-list>
       <v-divider></v-divider>
-      <v-btn block flat class="ma-0">All</v-btn>
+      <v-btn block flat class="ma-0" @click="$router.push({ name: 'checkout' })">Bayar</v-btn>
       <v-divider></v-divider>
     </v-card-text>
   </v-card>

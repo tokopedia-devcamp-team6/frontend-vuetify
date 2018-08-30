@@ -62,7 +62,7 @@ export default [
     meta: {
       public: true,
     },
-    name: 'Register',
+    name: 'register/pembeli',
     component: () => import(
       /* webpackChunkName: "routes" */
       /* webpackMode: "lazy-once" */
@@ -74,7 +74,7 @@ export default [
     meta: {
       public: true,
     },
-    name: 'Register',
+    name: 'register/penjual',
     component: () => import(
       /* webpackChunkName: "routes" */
       /* webpackMode: "lazy-once" */
