@@ -1,20 +1,20 @@
 <template>
   <div>
-      <v-container row wrap>
+      <v-container row wrap v-if="product">
         <!-- content -->
         <v-layout row wrap>
           <v-flex md4 sm12 xs12 class="mb-3">
             <v-card flat tile>
               <v-card-media height="150px" width="150px"> 
-                <img src="http://pakrice.pk/wp-content/uploads/2015/12/Non-basmati-Rice-1-600x400.jpg">
+                <img :src="product.gambar" v-if="product.gambar">
               </v-card-media>
             </v-card>
           </v-flex>
         </v-layout>
         <!-- price -->
         <v-flex md12>
-          <h4 class="heading font-weight-regular">Beras Super 2KG</h4>
-          <h4 class="heading font-weight-regular red--text mb-2">Rp 40.000</h4>
+          <h4 class="heading font-weight-regular">{{ product.nama }}</h4>
+          <h4 class="heading font-weight-regular red--text mb-2">Rp {{ product.harga }}</h4>
         </v-flex>
         <!-- description -->
         <v-flex md12>
@@ -31,12 +31,15 @@
             </v-tab>
             <v-tab-item>
               <v-card flat>
-                <v-card-text>{{ text }}</v-card-text>
+                <v-card-text>{{ product.detail }}</v-card-text>
               </v-card>
             </v-tab-item>
               <v-tab-item>
               <v-card flat>
-                <v-card-text>{{ texta }}</v-card-text>
+                <v-card-text>
+                  Nama Petani: {{ product.produsen.nama_lengkap }} ({{ product.produsen.nama_usaha }}) <br/>
+                  Alamat: {{ product.produsen.alamat }} <br/>
+                </v-card-text>
               </v-card>
             </v-tab-item>
           </v-tabs>
@@ -48,6 +51,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 import BuyNow from '@/pages/products/components/BuyNow';
 
 export default {
@@ -66,10 +70,22 @@ export default {
           disabled: true
         }
       ],
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-      texta: 'Lincididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-      active: null
+      id_products: null,
+      active: null,
+      product: null
     };
+  },
+  beforeMount () {
+    this.id_products = this.$route.query.id;
+  },
+  mounted () {
+    axios.get(`http://localhost:5000/products/id/${this.id_products}`)
+      .then(res => {
+        this.product = res.data.data;
+      })
+      .catch(err => {
+        console.log(err);
+      });
   },
 };
 </script>

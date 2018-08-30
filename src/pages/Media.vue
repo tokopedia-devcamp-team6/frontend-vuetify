@@ -16,23 +16,23 @@
                 sm6
                 xs6
                 class="pa-2"
-                v-for="(item,index) in files"
+                v-for="(item,index) in products"
                 :key="index"
               >
-                <a @click="showDetail(item.uuid)" class="d-flex">
+                <a @click="showDetail(item.id)" class="d-flex">
                   <v-card flat tile>
                     <v-card-media
                       height="120px"
                       width="150px"
                     >
-                      <img :src="item.path" alt="" v-if="isImage(item)">
+                      <img :src="item.gambar" alt="">
                     </v-card-media>
                     <v-divider></v-divider>
                       <v-card-title primary-title>
                           <div>
-                            <p class="body font-weight-bold mb-0">{{ item.fileName }}</p>
-                            <p class="body mb-0"> Rp. 700.000</p>
-                            <p class="body mb-0"> Kab. Kendal</p>
+                            <p class="body font-weight-bold mb-0">{{ item.nama }}</p>
+                            <p class="body mb-0">Rp {{ item.harga }}</p>
+                            <p class="body mb-0"> {{ item.cakupan }}</p>
                           </div>
                         </v-card-title>
                   </v-card>
@@ -52,7 +52,7 @@
                 <v-list-tile-content>
                   <div class="container pl-0" >
                     <div class="layout row">
-                      <div class="flex"> {{item.fileName}}</div>
+                      <div class="flex"> Rp {{item.fileName}}</div>
                       <v-spacer></v-spacer>
                       <div class="caption">{{item ? formateDate(item.ctime) : ''}}</div>
                     </div>
@@ -62,6 +62,17 @@
             </v-list>
           </v-layout>
         </vue-perfect-scrollbar>
+        <div class="text-xs-center mb-2">
+      
+        <v-btn v-if="buttonLoading"
+          color="blue-grey"
+          class="white--text"
+          @click="nextPage()"
+        >
+          Tampilkan Lainnya
+          <v-icon right dark>refresh</v-icon>
+        </v-btn>
+      </div>
       </div>
     </div>
   </div>
@@ -69,6 +80,7 @@
 
 <script>
 import Bytes from 'bytes';
+import axios from 'axios';
 import { getFileMenu, getFile } from '@/api/file';
 import VuePerfectScrollbar from 'vue-perfect-scrollbar';
 
@@ -90,29 +102,9 @@ export default {
   data: () => ({
     size: 'lg',
     view: 'grid',
-    selectedFile: {
-      path: '/static/icon/empty_file.svg'
-    },
-    imageMime: [
-      'image/jpeg',
-      'image/png',
-      'image/svg+xml'
-    ],
-
-    folders: [
-      {
-        name: 'bg',
-        lastModified: '2018-03-03'
-      },
-      {
-        name: 'cards',
-        lastModified: '2018-03-03'
-      },
-      {
-        name: 'avatar',
-        lastModified: '2018-03-03'
-      }
-    ],
+    products: null,
+    page: 1,
+    buttonLoading: true
   }),
   computed: {
     mediaMenu () {
@@ -123,20 +115,44 @@ export default {
     }
   },
 
-
+  mounted  () {
+    axios.get(`http://localhost:5000/products/${this.page}`)
+      .then(res => {
+        console.log(res.data);
+        this.products = res.data.data;
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  },
 
   methods: {
+    nextPage () {
+      if (this.products.length >= 1) {
+        this.page++;
+        axios.get(`http://localhost:5000/products/${this.page}`)
+          .then(res => {
+            this.products = res.data.data;
+            if (this.products.length < 10) {
+              this.buttonLoading = false;
+            }
+          })
+          .catch(err => {
+            console.log(err);
+          });
+      }
+    },
     isImage (file) {
       return this.imageMime.includes(file.fileType);
     },
     mimeIcons (file) {
       return this.imageMime.includes(file.fileType) ? 'image' : 'insert_drive_file';
     },
-    showDetail (file) {
+    showDetail (id) {
       this.$router.push({
         name: 'detail-product',
         query: {
-          id: file
+          id: id
         }
       });
     },
