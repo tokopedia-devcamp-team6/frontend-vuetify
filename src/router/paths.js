@@ -96,5 +96,12 @@ export default [
       /* webpackMode: "lazy-once" */
       `@/pages/Media.vue`
     )
-  },  
+  },
+  {
+    path: '/detail/p',
+    meta: {},
+    name: 'detail-product',
+    props: (route) => ({ type: route.query.type }),
+    component: () => import(`@/pages/products/DetailProduct`)
+  }
 ];

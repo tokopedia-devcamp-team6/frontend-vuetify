@@ -25,7 +25,7 @@ const Items =  [
 
   {
     'uuid': '5d333a3d-9140-4b8c-9ae3-9a8a96f0309e',
-    'fileName': 'Beras',
+    'fileName': 'Beras Supper - 10kg',
     'fileType': 'image/svg+xml',
     'path': 'http://pakrice.pk/wp-content/uploads/2015/12/Non-basmati-Rice-1-600x400.jpg',
     'fullPath': 'http://pakrice.pk/wp-content/uploads/2015/12/Non-basmati-Rice-1-600x400.jpg',
@@ -36,7 +36,7 @@ const Items =  [
   },
   {
     'uuid': '5d333a3d-9140-4b8c-9ae3-9a8a96f0309e',
-    'fileName': 'Beras Super',
+    'fileName': 'Beras Super Ayamana',
     'fileType': 'image/svg+xml',
     'path': 'https://soleh.net/wp-content/uploads/2008/09/beras.jpg',
     'fullPath': 'https://soleh.net/wp-content/uploads/2008/09/beras.jpg',

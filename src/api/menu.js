@@ -12,15 +12,15 @@ const Menu =  [
     name: 'Media',
     icon: 'perm_media',
   },
-  {
-    title: 'Widgets',
-    group: 'widgets',
-    component: 'widgets',
-    icon: 'widgets',
-    items: [
-      { name: 'dashboard', title: 'Dashboard', component: 'Dashboard' },
-    ]
-  },  
+  // {
+  //   title: 'Widgets',
+  //   group: 'widgets',
+  //   component: 'widgets',
+  //   icon: 'widgets',
+  //   items: [
+  //     { name: 'dashboard', title: 'Dashboard', component: 'Dashboard' },
+  //   ]
+  // },  
 ];
 // reorder menu
 Menu.forEach((item) => {

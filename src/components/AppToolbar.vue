@@ -21,7 +21,7 @@
         <v-btn icon flat slot="activator">
         <v-badge color="red" overlap>
           <span slot="badge">3</span>
-          <v-icon medium>notifications</v-icon>
+          <v-icon medium>shopping_cart</v-icon>
         </v-badge>
         </v-btn>
         <notification-list></notification-list>
