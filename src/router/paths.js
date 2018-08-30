@@ -110,7 +110,7 @@ export default [
     component: () => import(
       /* webpackChunkName: "routes" */
       /* webpackMode: "lazy-once" */
-      `@/pages/Media.vue`
+      `@/pages/products/ListProducts`
     ),
   },
 
@@ -141,6 +141,27 @@ export default [
     name: 'detail-product',
     props: (route) => ({ type: route.query.type }),
     component: () => import(`@/pages/products/DetailProduct`)
+  },
+  {
+    path: '/products/peternakan',
+    meta: {},
+    name: 'product/peternakan',
+    props: (route) => ({ type: route.query.type }),
+    component: () => import(`@/pages/products/ListProductsByCategory`)
+  },
+  {
+    path: '/products/perikanan',
+    meta: {},
+    name: 'product/perikanan',
+    props: (route) => ({ type: route.query.type }),
+    component: () => import(`@/pages/products/ListProductsByCategory`)
+  },
+  {
+    path: '/products/pertanian',
+    meta: {},
+    name: 'product/pertanian',
+    props: (route) => ({ type: route.query.type }),
+    component: () => import(`@/pages/products/ListProductsByCategory`)
   },
   {
     path: '/hubungi-kami',

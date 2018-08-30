@@ -3,11 +3,11 @@
     <!-- <v-toolbar class="elevation-0 transparent media-toolbar">
     </v-toolbar> -->
     <!-- <slide-promotion /> -->
-    <title-category title="Paling Hangat"/>
+    <title-category :title="categoryName"/>
     <v-divider></v-divider>
     <div class="layout row media-layout">
       <div class="media-content flex transparent">
-        <vue-perfect-scrollbar class="media-content--warp">
+        <vue-perfect-scrollbar class="media-content--warp" v-if="products.length > 0 && products !== null">
           <v-container fluid v-if="view ==='grid'">
             <v-layout row wrap class="x-grid-lg">
               <v-flex
@@ -62,17 +62,9 @@
             </v-list>
           </v-layout>
         </vue-perfect-scrollbar>
-        <div class="text-xs-center mb-2">
-      
-        <v-btn v-if="buttonLoading"
-          color="blue-grey"
-          class="white--text"
-          @click="nextPage()"
-        >
-          Tampilkan Lainnya
-          <v-icon right dark>refresh</v-icon>
-        </v-btn>
-      </div>
+        <v-flex v-else> 
+          <v-card-text> Data tidak tersedia </v-card-text>
+        </v-flex>
       </div>
     </div>
   </div>
@@ -102,9 +94,11 @@ export default {
   data: () => ({
     size: 'lg',
     view: 'grid',
-    products: null,
+    products: [],
     page: 1,
-    buttonLoading: true
+    buttonLoading: true,
+    id: null,
+    categoryName: null
   }),
   computed: {
     mediaMenu () {
@@ -115,8 +109,22 @@ export default {
     }
   },
 
+  beforeMount () {
+    let route =  this.$route.name;
+    if (route === 'product/pertanian') {
+      this.id = 3;
+      this.categoryName = 'Produk Pertanian';
+    } else if (route === 'product/peternakan') {
+      this.id = 2;
+      this.categoryName = 'Produk Peternakan';
+    } else {
+      this.id = 1;
+      this.categoryName = 'Produk Perikanan';
+    }
+  },
+
   mounted  () {
-    axios.get(`http://localhost:5000/products/${this.page}`)
+    axios.get(`http://localhost:5000/search/category/${this.id}`)
       .then(res => {
         this.products = res.data.data;
       })
@@ -126,21 +134,6 @@ export default {
   },
 
   methods: {
-    nextPage () {
-      if (this.products.length >= 1) {
-        this.page++;
-        axios.get(`http://localhost:5000/products/${this.page}`)
-          .then(res => {
-            this.products = res.data.data;
-            if (this.products.length < 10) {
-              this.buttonLoading = false;
-            }
-          })
-          .catch(err => {
-            console.log(err);
-          });
-      }
-    },
     isImage (file) {
       return this.imageMime.includes(file.fileType);
     },

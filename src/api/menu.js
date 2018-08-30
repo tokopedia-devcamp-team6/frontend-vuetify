@@ -11,9 +11,9 @@ const Menu =  [
     component: 'widgets',
     icon: 'shopping_basket',
     items: [
-      { name: 'Perikanan', title: 'Perikanan', component: 'Dashboard' },
-      { name: 'Pertenakan', title: 'Pertenakan', component: 'Dashboard' },
-      { name: 'Pertanian', title: 'Pertanian', component: 'Dashboard' },
+      { name: 'product/perikanan', title: 'Perikanan', component: 'product/perikanan' },
+      { name: 'product/peternakan', title: 'Pertenakan', component: 'product/peternakan' },
+      { name: 'product/pertanian', title: 'Pertanian', component: 'product/pertanian' },
     ]
   },
   { divider: true },
