@@ -11,11 +11,11 @@
             <router-view></router-view>
           </div>   
            <!-- App Footer -->
-          <v-footer height="auto" class="white pa-3 app--footer">
+          <!-- <v-footer height="auto" class="white pa-3 app--footer">
             <span class="caption">Tokopedia Devcamp &copy; {{ new Date().getFullYear() }}</span>
             <v-spacer></v-spacer>
             <span class="caption mr-1"> <a href="https://github.com/tookit/vue-material-admin">Themes</a> </span>
-          </v-footer>
+          </v-footer> -->
         </v-content>
         <!-- Go to top -->
         <app-fab></app-fab>

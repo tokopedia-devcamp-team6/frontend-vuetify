@@ -72,7 +72,7 @@ export default [
     component: () => import(
       /* webpackChunkName: "routes" */
       /* webpackMode: "lazy-once" */
-      `@/pages/Dashboard.vue`
+      `@/pages/Media.vue`
     )
   },
 

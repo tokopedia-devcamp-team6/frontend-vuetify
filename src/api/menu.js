@@ -12,6 +12,12 @@ const Menu =  [
     name: 'Media',
     icon: 'perm_media',
   },
+  {
+    title: 'Login Sample',
+    group: 'apps',
+    name: 'Login',
+    icon: 'perm_media',
+  },
   // {
   //   title: 'Widgets',
   //   group: 'widgets',

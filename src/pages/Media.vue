@@ -13,7 +13,7 @@
                 lg3
                 md4
                 sm6
-                xs12
+                xs6
                 class="pa-2"
                 v-for="(item,index) in files"
                 :key="index"
@@ -21,18 +21,17 @@
                 <a @click="showDetail(item.uuid)" class="d-flex">
                   <v-card flat tile>
                     <v-card-media
-                      height="150px"
+                      height="120px"
                       width="150px"
                     >
                       <img :src="item.path" alt="" v-if="isImage(item)">
-                      <v-icon class="mx-auto" size="135" v-else>insert_drive_file</v-icon>
                     </v-card-media>
                     <v-divider></v-divider>
                       <v-card-title primary-title>
                           <div>
-                            <h3 class="headline mb-0">{{ item.fileName }}</h3>
-                            <div> Rp. 700.000</div>
-                            <div> <v-icon>location_on</v-icon> Kab. Kendal</div>
+                            <p class="body font-weight-bold mb-0">{{ item.fileName }}</p>
+                            <p class="body mb-0"> Rp. 700.000</p>
+                            <p class="body mb-0"> Kab. Kendal</p>
                           </div>
                         </v-card-title>
                   </v-card>

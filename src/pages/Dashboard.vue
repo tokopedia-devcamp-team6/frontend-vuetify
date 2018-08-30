@@ -80,6 +80,7 @@
 import API from '@/api';
 import Material from 'vuetify/es5/util/colors';
 
+import VCircle from '@/components/circle/VCircle';
 import MiniStatistic from '@/components/widgets/statistic/MiniStatistic';
 import PlainTableOrder from '@/components/widgets/list/PlainTableOrder';
 import VWidget from '@/components/VWidget';
@@ -90,7 +91,8 @@ export default {
     VWidget,
     MiniStatistic,
     CircleStatistic,
-    PlainTableOrder    
+    PlainTableOrder,
+    VCircle
   },
   data: () => ({
     color: Material,
