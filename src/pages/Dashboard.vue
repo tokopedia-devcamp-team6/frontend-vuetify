@@ -1,6 +1,9 @@
 <template>
   <div id="pageDashboard">
     <v-container grid-list-xl fluid>
+    <v-layout row wrap> 
+      <title-category title="Paling Hangat"/>
+    </v-layout>
       <v-layout row wrap>
         <!-- mini statistic start -->
         <v-flex lg3 sm6 xs12>
@@ -85,6 +88,7 @@ import MiniStatistic from '@/components/widgets/statistic/MiniStatistic';
 import PlainTableOrder from '@/components/widgets/list/PlainTableOrder';
 import VWidget from '@/components/VWidget';
 import CircleStatistic from '@/components/widgets/statistic/CircleStatistic';
+import TitleCategory from '@/pages/products/components/TitleCategoryProduct';
 
 export default {
   components: {
@@ -92,7 +96,8 @@ export default {
     MiniStatistic,
     CircleStatistic,
     PlainTableOrder,
-    VCircle
+    VCircle,
+    TitleCategory
   },
   data: () => ({
     color: Material,

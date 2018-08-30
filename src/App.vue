@@ -6,7 +6,7 @@
         <app-toolbar class="app--toolbar"></app-toolbar>
         <v-content>
           <!-- Page Header -->
-          <page-header v-if="$route.meta.breadcrumb"></page-header>
+          <!-- <page-header v-if="$route.meta.breadcrumb"></page-header> -->
           <div class="page-wrapper">
             <router-view></router-view>
           </div>   
