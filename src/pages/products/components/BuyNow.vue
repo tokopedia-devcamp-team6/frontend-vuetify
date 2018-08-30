@@ -18,6 +18,7 @@
 
 <script>
 export default {
+  props: ['id-product'],
   data () {
     return {
       bottomNav: 'buyNow'
@@ -25,7 +26,9 @@ export default {
   },
   methods: {
     submit () {
-      alert('You buy! ');
+      this.$router.push({
+        name: 'checkout'
+      });
     }
   },
 };

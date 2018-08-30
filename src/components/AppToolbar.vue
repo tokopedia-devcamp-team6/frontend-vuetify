@@ -21,7 +21,7 @@
         <v-btn icon flat slot="activator">
         <v-badge color="red" overlap>
           <span slot="badge">3</span>
-          <v-icon medium>shopping_cart</v-icon>
+          <v-icon medium>shopping_basket</v-icon>
         </v-badge>
         </v-btn>
         <notification-list></notification-list>
@@ -58,13 +58,19 @@ export default {
       {
         icon: 'account_circle',
         href: 'profile',
-        title: 'Profile',
+        title: 'Profil',
         click: 'profile'
+      },
+      {
+        icon: 'shopping_cart',
+        href: 'pesanan',
+        title: 'Pesanan',
+        click: 'pesanan'
       },
       {
         icon: 'fullscreen_exit',
         href: '#',
-        title: 'Logout',
+        title: 'Keluar',
         click: (e) => {
           window.getApp.$emit('APP_LOGOUT');
         }

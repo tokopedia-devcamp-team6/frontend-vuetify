@@ -5,12 +5,12 @@ const Menu =  [
     icon: 'home',
     name: 'Media',
   },
-  {
-    title: 'Login Sample',
-    group: 'apps',
-    name: 'Login',
-    icon: 'perm_media',
-  },
+  // {
+  //   title: 'Login Sample',
+  //   group: 'apps',
+  //   name: 'Login',
+  //   icon: 'perm_media',
+  // },
   {
     title: 'Kategori',
     group: 'kategori',

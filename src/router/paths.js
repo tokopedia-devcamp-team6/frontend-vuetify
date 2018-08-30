@@ -58,7 +58,7 @@ export default [
     )
   },
   {
-    path: '/register',
+    path: '/register/pembeli',
     meta: {
       public: true,
     },
@@ -70,15 +70,39 @@ export default [
     )
   },
   {
-    path: '/',
-    meta: { },
-    name: 'Root',
-    redirect: {
-      name: 'Dashboard'
-    }
+    path: '/register/penjual',
+    meta: {
+      public: true,
+    },
+    name: 'Register',
+    component: () => import(
+      /* webpackChunkName: "routes" */
+      /* webpackMode: "lazy-once" */
+      `@/pages/auth/Register`
+    )
+  },
+  {
+    path: '/register/patner',
+    meta: {
+      public: true,
+    },
+    name: 'Register',
+    component: () => import(
+      /* webpackChunkName: "routes" */
+      /* webpackMode: "lazy-once" */
+      `@/pages/auth/Register`
+    )
   },
   {
     path: '/dashboard',
+    meta: { },
+    name: 'Root',
+    redirect: {
+      name: ''
+    }
+  },
+  {
+    path: '/',
     meta: { breadcrumb: true },
     name: 'Dashboard',
     component: () => import(
@@ -136,5 +160,27 @@ export default [
     name: 'profile',
     props: (route) => ({ type: route.query.type }),
     component: () => import(`@/pages/profile/Profile`)
-  }
+  },
+  // Cart
+  {
+    path: '/checkout',
+    meta: {},
+    name: 'checkout',
+    props: (route) => ({ type: route.query.type }),
+    component: () => import(`@/pages/cart/Checkout`)
+  },
+  {
+    path: '/invoice',
+    meta: {},
+    name: 'invoice',
+    props: (route) => ({ type: route.query.type }),
+    component: () => import(`@/pages/cart/Invoice`)
+  },
+  {
+    path: '/orders',
+    meta: {},
+    name: 'pesanan',
+    props: (route) => ({ type: route.query.type }),
+    component: () => import(`@/pages/cart/Orders`)
+  },
 ];
