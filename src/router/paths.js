@@ -54,7 +54,19 @@ export default [
     component: () => import(
       /* webpackChunkName: "routes" */
       /* webpackMode: "lazy-once" */
-      `@/pages/Login.vue`
+      `@/pages/auth/Login`
+    )
+  },
+  {
+    path: '/register',
+    meta: {
+      public: true,
+    },
+    name: 'Register',
+    component: () => import(
+      /* webpackChunkName: "routes" */
+      /* webpackMode: "lazy-once" */
+      `@/pages/auth/Register`
     )
   },
   {
@@ -117,5 +129,12 @@ export default [
     name: 'tentang-kami',
     props: (route) => ({ type: route.query.type }),
     component: () => import(`@/pages/about`)
+  },
+  {
+    path: '/profile',
+    meta: {},
+    name: 'profile',
+    props: (route) => ({ type: route.query.type }),
+    component: () => import(`@/pages/profile/Profile`)
   }
 ];

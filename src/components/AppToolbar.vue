@@ -33,7 +33,7 @@
           </v-avatar>
         </v-btn>
         <v-list class="pa-0">
-          <v-list-tile v-for="(item,index) in items" :to="!item.href ? { name: item.name } : null" :href="item.href" @click="item.click" ripple="ripple" :disabled="item.disabled" :target="item.target" rel="noopener" :key="index">
+          <v-list-tile v-for="(item,index) in items" :to="!item.href ? { name: item.name } : null" @click="$router.push({ name: item.click})" ripple="ripple" :disabled="item.disabled" :target="item.target" rel="noopener" :key="index">
             <v-list-tile-action v-if="item.icon">
               <v-icon>{{ item.icon }}</v-icon>
             </v-list-tile-action>
@@ -57,19 +57,9 @@ export default {
     items: [
       {
         icon: 'account_circle',
-        href: '#',
+        href: 'profile',
         title: 'Profile',
-        click: (e) => {
-          console.log(e);
-        }
-      },
-      {
-        icon: 'settings',
-        href: '#',
-        title: 'Settings',
-        click: (e) => {
-          console.log(e);
-        }
+        click: 'profile'
       },
       {
         icon: 'fullscreen_exit',
@@ -93,6 +83,6 @@ export default {
     handleFullScreen () {
       Util.toggleFullScreen();
     }
-  }
+  },
 };
 </script>

@@ -2,6 +2,7 @@
   <div id="media" class="media">
     <!-- <v-toolbar class="elevation-0 transparent media-toolbar">
     </v-toolbar> -->
+    <!-- <slide-promotion /> -->
     <title-category title="Paling Hangat"/>
     <v-divider></v-divider>
     <div class="layout row media-layout">
@@ -70,12 +71,15 @@
 import Bytes from 'bytes';
 import { getFileMenu, getFile } from '@/api/file';
 import VuePerfectScrollbar from 'vue-perfect-scrollbar';
+
 import TitleCategory from '@/pages/products/components/TitleCategoryProduct';
+import SlidePromotion from '@/pages/homepage/SlidePromotion';
 
 export default {
   components: {
     VuePerfectScrollbar,
-    TitleCategory
+    TitleCategory,
+    SlidePromotion
   },
   props: {
     type: {
