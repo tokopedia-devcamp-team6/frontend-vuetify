@@ -87,7 +87,7 @@ export default {
   },
   data: () => ({
     mini: false,
-    drawer: true,
+    drawer: false,
     menus: menu,
     scrollSettings: {
       maxScrollbarLength: 160
