@@ -1,17 +1,18 @@
 <template>
   <div id="media" class="media">
-    <v-toolbar class="elevation-0 transparent media-toolbar">
+    <!-- <v-toolbar class="elevation-0 transparent media-toolbar">
       
-    </v-toolbar>
+    </v-toolbar> -->
     <v-divider></v-divider>
     <div class="layout row media-layout">
       <div class="media-content flex transparent">
         <vue-perfect-scrollbar class="media-content--warp">
           <v-container fluid v-if="view ==='grid'">
-            <v-layout row wrap class="x-grid-lg">        
+            <v-layout row wrap class="x-grid-lg">       
               <v-flex
-                lg4
-                sm12
+                lg3
+                md4
+                sm6
                 xs12                
                 class="pa-2"
                 v-for="(item,index) in files"
@@ -27,9 +28,13 @@
                       <v-icon class="mx-auto" size="135" v-else>insert_drive_file</v-icon>  
                     </v-card-media>
                     <v-divider></v-divider>
-                    <v-card-title>
-                      {{item.fileName}}
-                    </v-card-title>
+                      <v-card-title primary-title>
+                          <div>
+                            <h3 class="headline mb-0">{{ item.fileName }}</h3>
+                            <div> Rp. 700.000</div>
+                            <div> <v-icon>location_on</v-icon> Kab. Kendal</div>
+                          </div>
+                        </v-card-title>
                   </v-card>
                 </a>
               </v-flex>

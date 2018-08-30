@@ -17,9 +17,6 @@
         >
       </v-text-field>
       <v-spacer></v-spacer>    
-      <v-btn icon @click="handleFullScreen()">
-        <v-icon>fullscreen</v-icon>
-      </v-btn>
       <v-menu offset-y origin="center center" class="elelvation-1" :nudge-bottom="14" transition="scale-transition">
         <v-btn icon flat slot="activator">
         <v-badge color="red" overlap>
