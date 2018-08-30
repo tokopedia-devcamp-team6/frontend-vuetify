@@ -1,6 +1,6 @@
 <template>
   <v-card>
-    <v-card-media src="/static/people/man/m1.jpg" height="390">
+    <v-card-media src="https://user-images.githubusercontent.com/10141928/35048258-069b7a48-fbcf-11e7-8c38-c924da4cce81.jpg" height="390">
       <v-layout column class="media ma-0">
         <v-card-title>
           <v-btn dark icon>
