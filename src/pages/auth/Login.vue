@@ -50,7 +50,7 @@ export default {
       setTimeout(() => {
         this.$store.dispatch(LOGIN)
           .then(() => {
-            this.$router.push({name: 'merchant/dashboard'});
+            this.$router.push({ name: 'merchant/dashboard' });
             this.loading = false;
           });
       }, 1000);

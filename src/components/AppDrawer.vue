@@ -73,6 +73,8 @@
 </template>
 <script>
 import menu from '@/api/menu';
+import tokenService from '../common/token.services';
+
 import VuePerfectScrollbar from 'vue-perfect-scrollbar';
 export default {
   name: 'app-drawer',

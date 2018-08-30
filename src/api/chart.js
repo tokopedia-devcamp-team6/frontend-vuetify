@@ -6,8 +6,8 @@ const shortMonth = [
 const monthVisitData = shortMonth.map(m => {
   return {
     'month': m,
-    'Unique Visit': Math.floor(Math.random() * 1000) + 200,
-    'Page View': Math.floor(Math.random() * 1000) + 250,
+    'Peternakan': Math.floor(Math.random() * 1000) + 200,
+    'Perikanan': Math.floor(Math.random() * 1000) + 250,
   };
 });
 
